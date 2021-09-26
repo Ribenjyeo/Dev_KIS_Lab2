@@ -1,0 +1,47 @@
+body {
+    background-color: #eeeeee;
+}
+
+.cap-site{
+    padding: 14px;
+    background-color: white;
+    margin-left: 14px;
+}
+
+.user-exit{
+    position: absolute; 
+    top: 18px; 
+    right: 28px;
+}
+
+.btn-exit{ 
+    color: #fff;
+    background-color: #007bff;
+    width: 200px;
+    border-color: #007bff;
+}
+
+
+.card.messageoutput {
+    margin: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+    
+/* Анимация появление записей */
+    transition: 1s; 
+	animation: show 2s 1; 
+    animation-fill-mode: forwards; 
+    animation-delay: 0s; 
+}
+
+
+@keyframes show{
+    0%{ opacity:0; }
+    100% { opacity:1; }
+   }
+
+.MesNew{
+    color:red;
+}
+
