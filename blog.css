@@ -22,26 +22,38 @@ body {
 }
 
 
-.card.messageoutput {
+.messageoutput {
+    margin: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+.messageinput {
     margin: 50px;
     margin-left: 200px;
     margin-right: 200px;
 
     
-/* Анимация появление записей */
-    transition: 1s; 
-	animation: show 2s 1; 
-    animation-fill-mode: forwards; 
-    animation-delay: 0s; 
+    /* Анимация появление записей */
+    opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+    transition: 0s; /*Скорость перехода состояния элемента*/
+    animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    animation-delay: 0s; /* Задержка перед началом */
 }
 
+.messageinput::before {
+
+    content: "New message";
+    color: red;
+}
 
 @keyframes show{
     0%{ opacity:0; }
     100% { opacity:1; }
-   }
-
-.MesNew{
-    color:red;
 }
+
+
+
 

@@ -1,27 +1,19 @@
 <!-- Файл для добавления всех сообщений из БД на страницу blog.php -->
 
 <?php
-// $json = '
-// {"message":"sdfgdsfg","login":"admin","data":"2021-09-22 15:22:07"}';
-// $j = @file_get_contents('lastnews.json');
-// $row = json_decode($j, true);
-
-// echo $row['message'];
 require 'connectDB.php';
 //Получение всех данных из таблицы message с обратной сортировкой для вывода сначала последних сообщений
-$outmessage = $mysql -> query("SELECT * FROM message ORDER BY id DESC LIMIT 1");
+$outmessage = $mysql -> query("SELECT * FROM message ORDER BY id DESC LIMIT 1 ");
 //Преобразование в массив данных из таблицы message и представление в виде html
 while($row = $outmessage -> fetch_assoc()){
-    echo '<div class="card messageoutput">';
+   echo '<div class="card messageinput">';
         echo '<div class="card-header">';
             echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                     echo '<div class="ml-2">';
-                        echo '<div class="h5 m-0">';
-                        echo '<div class="MesNew">';
+                        echo '<div class="h5 m-0 teg">';
                             echo "@";
                             echo $row['name']; //вывод имени пользователя
-                        echo '</div>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
@@ -42,5 +34,8 @@ while($row = $outmessage -> fetch_assoc()){
             echo ' </div>';
     echo '</div> ';
 }
+$mysql -> close();
 
+
+    
 ?>

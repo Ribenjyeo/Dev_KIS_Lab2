@@ -5,32 +5,34 @@ require 'connectDB.php';
 
 $id = $_GET['id']; //получение ID
 setcookie('id', $id, time() + 10); //Запись ID в куки потому что он не сохраняется после нажатия на кнопку
-$messageedit = $mysql -> query("SELECT * FROM message WHERE id = '$id'"); //получение текста изменяего сообщения
-$ms = $messageedit -> fetch_assoc();
+$messageedit = $mysql->query("SELECT * FROM message WHERE id = '$id'"); //получение текста изменяего сообщения
+$ms = $messageedit->fetch_assoc();
 $textforedit = $ms['text'];
 
 $newtext = $_GET['newmessage']; //запись нового сообщения в переменную
 
-if( isset($_GET['button-edit'])){ //если кнопка нажата
+if (isset($_GET['button-edit'])) { //если кнопка нажата
     $id = $_COOKIE['id']; //получения поля id
-    $newmessage = $mysql -> query("UPDATE message SET text = '$newtext', data = NOW() WHERE id = '$id'"); //обновление записи в бд
-    header('Location: /Lab%201/blog.php');
+    $newmessage = $mysql->query("UPDATE message SET text = '$newtext', data = NOW() WHERE id = '$id'"); //обновление записи в бд
+    header('Location: /Lab2/blog.php');
 }
 ?>
 
 <html>
+
 <head>
-    <meta charset = "utf-8">
+    <meta charset="utf-8">
     <title>Гостевая кинга Куманек А.А.</title>
-    <link rel = "stylesheet" type = "text/css" href = "blog.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
- <body>       
-     <form action="blog.php">
-        <div class = "cap cap-site">
+
+<body>
+    <form action="blog.php">
+        <div class="cap cap-site">
             <h2>Редактор записей</h2>
         </div>
-        <div class="user-exit" >
+        <div class="user-exit">
             <button type="submit" class="btn btn-exit">Отмена редактирования</button>
         </div>
     </form>
@@ -40,7 +42,7 @@ if( isset($_GET['button-edit'])){ //если кнопка нажата
                 <div class="tab-content">
                     <div class="tab-pane fade show active">
                         <div class="form-group">
-                            <textarea class="form-control" name="newmessage" rows="3"><?php echo $textforedit ?></textarea>  <!-- вывод сообщения для изменения -->
+                            <textarea class="form-control" name="newmessage" rows="3"><?php echo $textforedit ?></textarea> <!-- вывод сообщения для изменения -->
                         </div>
                     </div>
                 </div>
@@ -53,4 +55,5 @@ if( isset($_GET['button-edit'])){ //если кнопка нажата
         </form>
     </div>
 </body>
+
 </html>

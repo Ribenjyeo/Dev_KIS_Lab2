@@ -26,5 +26,5 @@
     setcookie("user", $user["name"], time() + 3600);
 
     $mysql -> close();
-    header('Location: /Lab%201/blog.php');
+    header('Location: /Lab2/blog.php');
 ?>
