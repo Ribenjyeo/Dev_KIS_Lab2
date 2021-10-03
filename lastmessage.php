@@ -11,7 +11,9 @@ while($row = $outmessage -> fetch_assoc()){
             echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                     echo '<div class="ml-2">';
-                        echo '<div class="h5 m-0 teg">';
+                        echo '<div class="h5 m-0">';
+                        echo '<div class="teg">';
+                        echo '</div>';
                             echo "@";
                             echo $row['name']; //вывод имени пользователя
                         echo '</div>';

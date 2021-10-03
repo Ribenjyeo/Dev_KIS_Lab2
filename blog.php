@@ -32,7 +32,8 @@
                 </li>
             </ul>
         </div>
-       <form  metod="GET" id="form" action="message.php">  <!-- action="message.php" -->
+        <form metod="GET" id="form" action="message.php">
+            <!-- action="message.php" -->
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane fade show active">
@@ -50,14 +51,10 @@
         </form>
     </div>
     <!-- Post /////-->
-    <!-- Мы вызываем файл outputmessage.php, чтобы вывести все сообщения, которые были занесены в базу данных -->
-  
 
     <div class="nmsg" id="nmsg">
-
     </div>
     <div class="allnews" id="allnews">
-
     </div>
 </body>
 

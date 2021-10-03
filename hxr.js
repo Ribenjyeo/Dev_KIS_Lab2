@@ -1,9 +1,5 @@
 
-
-
-
-
-function loadDoc() {
+function loadDoc() { //загрузка всех сообщений из бд
   var xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function () {
@@ -19,44 +15,43 @@ function loadDoc() {
 
 }
 
-$(document).ready(function(){
-  $("#form").submit(function(e){
+$(document).ready(function () { // отправка формы без перезагрузки страцы с помощью jquery
+  $("#form").submit(function (e) {
     e.preventDefault();
     $.ajax({
       url: "message.php",
       type: "GET",
       data: $('#form').serialize(),
-      success: function(response) {
+      success: function (response) {
         console.log("выполнено успешно");
 
-        setTimeout('update()', 10000)
-        document.getElementById("newmessage").value = "hello";
-        
+        update(); //Вызываем фунцию для вывода последнего сообщнеия
+        document.getElementById("newmessage").value = "";
+
       },
-      error: function(response) {
+
+      error: function (response) {
         console.log("выполнено не успешно");
-     }
+      }
     });
   });
 });
 
-function update(){
+function update() { //вывод последнего элемента в бд
 
-    var xhr = new XMLHttpRequest();
-
-
-    xhr.onreadystatechange = function() {
-
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("nmsg").innerHTML = this.responseText;
-      }
-
-    };
-
-    xhr.open("GET", "lastmessage.php", true);
-    xhr.send();
+  var xhr = new XMLHttpRequest();
 
 
-    console.log("выполненно");
+  xhr.onreadystatechange = function () {
+
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("nmsg").insertAdjacentHTML("afterend", this.responseText); //добавление нового элемента без его перезаписи   
+    }
+
+  };
+  xhr.open("GET", "lastmessage.php", true);
+  xhr.send();
+  console.log("выполненно");
 
 }
+

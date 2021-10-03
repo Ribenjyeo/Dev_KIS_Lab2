@@ -37,16 +37,25 @@ body {
     
     /* Анимация появление записей */
     opacity:0; /*Элемент полностью прозрачный (невидимый)*/
-    transition: 0s; /*Скорость перехода состояния элемента*/
+    transition: 1s; /*Скорость перехода состояния элемента*/
     animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
     animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
     animation-delay: 0s; /* Задержка перед началом */
 }
 
-.messageinput::before {
+.teg::before {
 
     content: "New message";
     color: red;
+    transition: 1s; /*Скорость перехода состояния элемента*/
+    animation: show2 3s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    animation-delay: 5s; /* Задержка перед началом */
+}
+
+@keyframes show2{
+    0%{ opacity:1; }
+    100% { opacity:0; }
 }
 
 @keyframes show{
